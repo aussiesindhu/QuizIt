@@ -1,6 +1,9 @@
 package quizIt.api;
-import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface QuizRepository extends MongoRepository<QData, String> {
-	QData findBy_id(String _id);
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface QuizRepository extends MongoRepository<quizdata, String> {
+	//quizdata findBy_id(String _id);
 }
