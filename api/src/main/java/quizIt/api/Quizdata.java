@@ -1,11 +1,12 @@
 package quizIt.api;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
-public class quizdata {
+public class Quizdata {
 	
 	@Id
-	String id;
+	ObjectId Id;
 	
 	String Q;
 	String C[] = new String[4];
@@ -13,23 +14,24 @@ public class quizdata {
 	String L;
 	String T;
 	
-	public quizdata() {
+	public Quizdata() {
 		super();
 	}
-	public quizdata(String q, String[] c, String a, String l, String t) {
+	public Quizdata(String q, String[] c, String a, String l, String t) {
 		super();
+		System.out.println(q);
 		Q = q;
-		C=c;
-			
+		C = c;
 		A = a;
 		L = l;
 		T = t;
 	}
-	public String getId() {
-		return id;
+	
+	public ObjectId getId() {
+		return Id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setId(ObjectId id) {
+		Id = id;
 	}
 	public String getQ() {
 		return Q;
@@ -41,7 +43,11 @@ public class quizdata {
 		return C;
 	}
 	public void setC(String[] c) {
-		C = c;
+		int i=0;
+		for(String c1:c)
+		{
+			C[i++]=c1;
+		}
 	}
 	public String getA() {
 		return A;
@@ -61,5 +67,4 @@ public class quizdata {
 	public void setT(String t) {
 		T = t;
 	}
-	
 }

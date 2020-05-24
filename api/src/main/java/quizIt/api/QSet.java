@@ -1,8 +1,9 @@
 package quizIt.api;
 
-public class qSet {
+public class QSet {
 	String Q;
 	String[] C = new String[4];
+	String A;
 	public String getQ() {
 		return Q;
 	}
@@ -15,10 +16,17 @@ public class qSet {
 	public void setC(String[] c) {
 		C = c;
 	}
-	public qSet(String q, String[] c) {
+	public String getA() {
+		return A;
+	}
+	public void setA(String a) {
+		A = a;
+	}
+	public QSet(String q, String[] c, String a) {
 		super();
 		Q = q;
 		C = c;
+		A = a;
 	}
 	
 	
