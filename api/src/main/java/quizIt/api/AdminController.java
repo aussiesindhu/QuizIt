@@ -39,14 +39,6 @@ public class AdminController {
 		return data;			
 	}
 	
-	//get the list of all topics
-	@RequestMapping(value = "/admn/topics", method = RequestMethod.GET)
-	public HashSet<String> getTopic() {
-		for(Quizdata q:repo.findAll()) 
-				this.topics.add(q.getT());
-		return topics;
-	}
-	
 	//Post a new topic
 	@RequestMapping(value = "/admn/topics", method = RequestMethod.POST)
 	public void postTopic(@RequestBody String topic) {
