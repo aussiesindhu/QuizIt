@@ -61,5 +61,21 @@ public class QuizController {
 		return levels;
 	}
 	
+	QuizController(QuizRepository repo) {
+		this.repo = repo;
+	}
+
+	//Get 1 random question for the chosen topic and level
+	@RequestMapping(value = "/{topic}/{level}", method = RequestMethod.GET)
+	public QSet getTopicLevel(@PathVariable("topic") String topic, @PathVariable("level") String level) {
+		List<Quizdata> res = new ArrayList<Quizdata>();
+		for (Quizdata q : repo.findAll())
+			if (q.T.equals(topic) && q.L.equals(level))
+				res.add(q);
+		qLen = res.size();
+		Quizdata randq = res.get(r.nextInt(qLen));
+		QSet qs = new QSet(randq.Q, randq.C, randq.A);
+		return qs;
+	}
 
 }

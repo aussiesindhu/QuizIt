@@ -38,7 +38,7 @@ public class AdminController {
 		repo.save(data);
 		return data;			
 	}
-	
+
 	//Post a new topic
 	@RequestMapping(value = "/admn/topics", method = RequestMethod.POST)
 	public void postTopic(@RequestBody String topic) {
